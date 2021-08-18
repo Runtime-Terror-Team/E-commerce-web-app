@@ -1,8 +1,14 @@
+import React from 'react';
+import ItemBoxListView from "./components/productList/ItemBoxListView";
+import './app.scss'
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+        <ItemBoxListView/>
+        <ItemBoxListView/>
+        <ItemBoxListView/>
+        <ItemBoxListView/>
     </div>
   );
 }
