@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Card from "@material-ui/core/Card";
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
+import ProductImage from '../common/ProductImage';
 
 function ItemBoxListView() {
     const { title, stock, description, price } = {
@@ -30,11 +31,7 @@ function ItemBoxListView() {
     return (
         <>
             <Card className='product-item'>
-                <div className="product-item_image">
-                    <img
-                        src="https://images.unsplash.com/flagged/photo-1585052201332-b8c0ce30972f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRyZXNzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                        alt=""/>
-                </div>
+               <ProductImage/>l̥
                 <div className="product-item_content">
                     <div className="product-item_tittle"><h1>{title}</h1></div>
                     <div className="product-item_availability">
