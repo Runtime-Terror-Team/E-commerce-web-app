@@ -5,8 +5,7 @@ const handleFromatText = (text) => {
 }
 
 const handleLimitedText = (text, count) => {
-    let newText = text.slice(0, count) + (text.length > count ? "..." : "");
-    return handleFromatText(newText)
+    return text.slice(0, count) + (text.length > count ? "..." : "")
 }
 
 export { handleFromatText, handleLimitedText }

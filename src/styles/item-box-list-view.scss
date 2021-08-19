@@ -3,6 +3,9 @@
   flex-direction: row;
   max-width: 800px;
   margin: 20px 0;
+  &_tittle{
+    margin: 10px 0;
+  }
 
   &_availability {
     h4 {
@@ -13,6 +16,10 @@
     p {
       display: inline-block;
     }
+  }
+
+  &_description{
+    margin: 10px 0;
   }
 
   &_buttons {
