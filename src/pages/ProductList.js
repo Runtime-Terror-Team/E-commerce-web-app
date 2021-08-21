@@ -6,7 +6,7 @@ export const ProductList = () => {
     const [products, setProducts] = useState([])
 
     const fetchProducts = async () => {
-        const {data} = await commerce.products.list({limit:2 }) // default 20 max 200
+        const { data } = await commerce.products.list() // default 20 max 200
         setProducts(data)
     }
 
@@ -15,23 +15,25 @@ export const ProductList = () => {
     }, [])
 
     console.log(products)
-    if (products.length === 0) {
-        return <h1>Loading</h1>
-    } else {
+
         return (
-            <div>
-                {products.length !== 0 &&
-                    products.map((product, id) =>{
-                        return (
-                            <ItemBoxListView
-                                key={product.id}
-                                product={product}
-                            />
-                        )})
-                }
-            </div>
+            <>
+                <div>
+                    {
+                        products.length === 0 ?
+                            <h1>Loading</h1> :
+                            products.map((product, id) => {
+                                return (
+                                    <ItemBoxListView
+                                        key={product.id}
+                                        product={product}
+                                    />
+                                )
+                            })
+                    }
+                </div>
+
+            </>
+
         )
-    }
-
-
 }

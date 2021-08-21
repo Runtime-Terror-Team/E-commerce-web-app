@@ -11,8 +11,9 @@ import Card from "@material-ui/core/Card";
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import ReactHtmlParser from 'react-html-parser'
+import { Link } from "react-router-dom";
 
-function ItemBoxListView({product}) {
+function ItemBoxListView({ product }) {
 
     const [toogleWishList, setToogleWishList] = useState(true)
 
@@ -24,15 +25,25 @@ function ItemBoxListView({product}) {
 
     return (
         <>
+
             <Card className='product-item'>
+
                 <div className="product-item_image">
-                    <img
-                        src={product.media.source}
-                        alt=""/>
+                    <Link to={`/${product.id}`}>
+                        <img
+                            src={product.media.source}
+                            alt=""/></Link>
                 </div>
 
                 <div className="product-item_content">
-                    <div className="product-item_tittle"><h1>{product.name}</h1></div>
+                    <div className="product-item_tittle">
+                        <Link to={`/${product.id}`}>
+                            <h1>
+                                {product.name}
+                            </h1>
+                        </Link>
+
+                    </div>
                     <div className="product-item_availability">
                         <h4>Availability :</h4>
                         <p>In Stock({product.inventory.available} items)</p>
@@ -40,7 +51,9 @@ function ItemBoxListView({product}) {
                     <div className="product-item_description">
                         <h4>Product Description :</h4>
                         {ReactHtmlParser(handleLimitedText(text, 200))}
-                        <a href="/"><small>Readmore...</small></a>
+                        <Link to={`/${product.id}`}>
+                            <small>Readmore...</small>
+                        </Link>
 
                     </div>
                     <div className="product-item_rating">
