@@ -39,6 +39,15 @@
 
     img {
       height: 28px;
+      @include mobile {
+        height: 20px;
+      }
+    }
+
+    @include mobile {
+      margin-left: 10px;
+      position: absolute;
+      right: 57%;
     }
   }
 
