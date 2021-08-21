@@ -71,10 +71,12 @@
     &__item.active {
       font-weight: 600;
       color: $main-color;
+      border-bottom: 2px solid $main-color;
     }
 
     &__item:hover {
       color: $main-color;
+      border-bottom-color: var(--hovered-color);
     }
 
     &__left,
