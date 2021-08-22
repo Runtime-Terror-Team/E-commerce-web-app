@@ -9,20 +9,20 @@ import logo from "../assets/images/Logo-2.svg";
 const footerAboutLinks = [
   {
     display: "Home",
-    path: "/about",
+    path: "/",
   },
   {
     display: "Men",
-    path: "/about",
+    path: "/men",
   },
 
   {
     display: "Women",
-    path: "/about",
+    path: "/women",
   },
   {
     display: "Kids",
-    path: "/about",
+    path: "/kids",
   },
 ];
 
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <div className="footer__title">Products</div>
+            <div className="footer__title">Pages</div>
             <div className="footer__content">
               {footerAboutLinks.map((item, index) => (
                 <p key={index}>

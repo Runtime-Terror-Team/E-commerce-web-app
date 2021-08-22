@@ -11,6 +11,7 @@ const Toggle = () => {
             color: "red",
             position: "relative",
             left: "4.01rem",
+            cursor: "pointer",
           }}
         ></i>
       ) : (
@@ -20,6 +21,7 @@ const Toggle = () => {
             color: "red",
             position: "relative",
             left: "4.01rem",
+            cursor: "pointer",
           }}
         ></i>
       )}
@@ -30,6 +32,7 @@ const Toggle = () => {
           color: "red",
           position: "relative",
           opacity: "0%",
+          cursor: "pointer",
         }}
         onClick={() => setShow(!show)}
       ></i>

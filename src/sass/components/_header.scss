@@ -39,6 +39,7 @@
 
     img {
       height: 28px;
+
       @include mobile {
         height: 20px;
       }
@@ -94,6 +95,11 @@
         @include tablet {
           margin-left: 10px;
         }
+
+        // :active {
+        // color: $main-color;
+        //   border-bottom: 1px solid $main-color;
+        // }
       }
 
       @include mobile {

@@ -1,6 +1,6 @@
 .footer {
   padding: 60px 0;
-  box-shadow: $box-shadow;
+  box-shadow: black 1240px 18px;
   font-size: 1.5rem;
 
   &__logo {
@@ -11,6 +11,9 @@
     p {
       margin-left: 3rem;
       margin-bottom: 2rem;
+    }
+    @include mobile {
+      margin-bottom: 1rem;
     }
   }
 
