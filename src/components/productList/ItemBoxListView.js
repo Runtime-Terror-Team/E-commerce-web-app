@@ -1,93 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { handleLimitedText } from "../helper/functions/handleText";
 import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import IconButton from "@material-ui/core/IconButton";
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import Typography from '@material-ui/core/Typography';
 import Card from "@material-ui/core/Card";
-import Tooltip from '@material-ui/core/Tooltip';
-import Zoom from '@material-ui/core/Zoom';
 import ReactHtmlParser from 'react-html-parser'
 import { Link } from "react-router-dom";
+import AddToWishListButton from "./AddToWishListButton";
+import { Grid } from "@material-ui/core";
 
 function ItemBoxListView({ product }) {
-
-    const [toogleWishList, setToogleWishList] = useState(true)
-
-    const handleToggle = () => {
-        setToogleWishList(!toogleWishList)
-    }
 
     const text = product.description
 
     return (
-        <>
+        <Card className='product-item'>
+            <Grid
+            container
+            item
+            spacing={2}
+            >
+            <Grid container
+                  className="product-item_image"
+                  item
+                  sm={4}
+            >
+                <Link to={`/${product.id}`}>
+                    <img
+                        src={product.media.source}
+                        alt={product.name}/></Link>
+            </Grid>
 
-            <Card className='product-item'>
-
-                <div className="product-item_image">
+            <Grid container item direction={"column"} sm={8} className="product-item_content">
+                <div className="product-item_tittle">
                     <Link to={`/${product.id}`}>
-                        <img
-                            src={product.media.source}
-                            alt=""/></Link>
+                        <h2>
+                            {product.name}
+                        </h2>
+                    </Link>
+
+                </div>
+                <div className="product-item_availability">
+                    <h4>Availability :</h4>
+                    <p>In Stock ( {product.inventory.available} items)</p>
+                </div>
+                <div className="product-item_description">
+                    <h4>Product Description :</h4>
+                    {ReactHtmlParser(handleLimitedText(text, 180))}
+                    <Link to={`/${product.id}`}>
+                        <small>ReadMore...</small>
+                    </Link>
+                </div>
+                <div className="product-item_rating">
+                    <Rating name="read-only" value={5} readOnly/>
+                </div>
+                <div className="product-item_price">
+                    <h2>&#8377; {product.price.raw}</h2>
                 </div>
 
-                <div className="product-item_content">
-                    <div className="product-item_tittle">
-                        <Link to={`/${product.id}`}>
-                            <h1>
-                                {product.name}
-                            </h1>
-                        </Link>
-
-                    </div>
-                    <div className="product-item_availability">
-                        <h4>Availability :</h4>
-                        <p>In Stock({product.inventory.available} items)</p>
-                    </div>
-                    <div className="product-item_description">
-                        <h4>Product Description :</h4>
-                        {ReactHtmlParser(handleLimitedText(text, 200))}
-                        <Link to={`/${product.id}`}>
-                            <small>Readmore...</small>
-                        </Link>
-
-                    </div>
-                    <div className="product-item_rating">
-                        <Rating name="read-only" value={5} readOnly/>
-                    </div>
-                    <div className="product-item_price">
-                        <h2>&#8377; {product.price.raw}</h2>
-                    </div>
-
-                    <div className="product-item_buttons">
-                        <Button className='product-item_buttons_addtocart' variant="contained" color="primary"
-                                endIcon={<ArrowForwardIcon/>} href=''>
-                            Add To Cart
-                        </Button>
-                        <Tooltip
-                            title={"Wishlist"}
-                            placement="right"
-                            arrow
-                            TransitionComponent={Zoom}
-                        >
-                            <div className='product-item_buttons_addtowishlist' onClick={() => handleToggle()}>
-                                <IconButton aria-label="delete" color="primary" onClick={() => handleToggle()}>
-                                    {toogleWishList ? <FavoriteBorderIcon/> :
-                                        <FavoriteIcon color='secondary'/>}
-                                </IconButton>
-                                <Typography variant="body2" color="primary">
-                                    Add to Wishlist
-                                </Typography>
-                            </div>
-                        </Tooltip>
-                    </div>
+                <div className="product-item_buttons">
+                    <Button className='product-item_buttons_addtocart' variant="contained" color="primary"
+                            endIcon={<ArrowForwardIcon/>} href=''>
+                        Add To Cart
+                    </Button>
+                    <AddToWishListButton product_id={product.id}/>
                 </div>
-            </Card>
-        </>
+            </Grid>
+            </Grid>
+        </Card>
     );
 }
 
