@@ -11,6 +11,7 @@ import Contact from "../pages/Contact";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import Login from "../pages/Login";
+import SignUp from "../pages/Signup";
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
       <Route path="/cart" component={Cart} />
       <Route path="/wishlist" component={Wishlist} />
       <Route path="/login" component={Login} />
+      <Route path="/signup" exact component={SignUp} />
     </Switch>
   );
 };
