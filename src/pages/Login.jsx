@@ -25,9 +25,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    // paddingLeft: "50rem",
   },
   paper: {
-    margin: theme.spacing(12, 4),
+    margin: theme.spacing(2, 4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
