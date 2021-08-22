@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Grid from "./Grid";
 
-import logo from "../assets/images/Logo-2.png";
+import logo from "../assets/images/Logo-2.svg";
 
 const footerAboutLinks = [
   {
@@ -24,11 +24,6 @@ const footerAboutLinks = [
     display: "Kids",
     path: "/about",
   },
-
-  {
-    display: "Accessories",
-    path: "/about",
-  },
 ];
 
 const footerCustomerLinks = [
@@ -41,7 +36,7 @@ const footerCustomerLinks = [
     path: "/about",
   },
   {
-    display: "LinkedIN",
+    display: "Linkedin",
     path: "/about",
   },
 ];
@@ -50,18 +45,23 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <Grid col={4} mdCol={2} smCol={1} gap={10}>
+          <div className="footer__about">
+            <p>
+              <Link to="/">
+                <img src={logo} className="footer__logo" alt="" />
+              </Link>
+            </p>
+            <p>
+              {" "}
+              <strong>Coming soon everywhere</strong>
+            </p>
+          </div>
           <div>
-            <div className="footer__title">Phone no.</div>
+            <div className="footer__title">Contact nos.</div>
             <div className="footer__content">
-              <p>
-                Run <strong> 0123456789</strong>
-              </p>
-              <p>
-                Time <strong> 0123456789</strong>
-              </p>
-              <p>
-                Terror <strong> 0123456789</strong>
-              </p>
+              <p>Run 0123456789</p>
+              <p>Time 0123456789</p>
+              <p>Terror 0123456789</p>
             </div>
           </div>
           <div>
@@ -83,14 +83,6 @@ const Footer = () => {
                 </p>
               ))}
             </div>
-          </div>
-          <div className="footer__about">
-            <p>
-              <Link to="/">
-                <img src={logo} className="footer__logo" alt="" />
-              </Link>
-            </p>
-            <p>Coming soon everywhere</p>
           </div>
         </Grid>
       </div>

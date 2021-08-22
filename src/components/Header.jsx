@@ -200,7 +200,7 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import logo from "../assets/images/Logo-2.png";
+import logo from "../assets/images/Logo-2.svg";
 
 const mainNav = [
   {
@@ -209,15 +209,15 @@ const mainNav = [
   },
   {
     display: "Men",
-    path: "/catalog",
+    path: "/men",
   },
   {
     display: "Women",
-    path: "/accessories",
+    path: "/women",
   },
   {
     display: "Kids",
-    path: "/",
+    path: "/kids",
   },
   {
     display: "Contact us",
