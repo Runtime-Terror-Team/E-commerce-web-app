@@ -1,4 +1,4 @@
-import { Grid, Hidden } from "@material-ui/core";
+import { Divider, Grid, Hidden, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import ImageSlider from "../components/helper/ImageSlider";
@@ -6,12 +6,14 @@ import ImageGrid from "../components/singleProduct/ImageGrid";
 import Info from "../components/singleProduct/Info";
 import MainImage from "../components/singleProduct/MainImage";
 import { commerce } from "../lib/commerce";
+import Section, { SectionBody, SectionTitle } from "../components/Section";
+import ProductCard from "../components/ProductCard";
+import Grid1 from "../components/Grid";
 
-function SingleProduct({onAddToCart}) {
+function SingleProduct({ onAddToCart }) {
     const { product_id } = useParams()
     const [product, setProduct] = useState([])
     const [selectedImage, setSelectedImage] = useState(0)
-    console.log(product);
     //
     const fetchProduct = async () => {
         // const { data } = await commerce.products.list({ query: "prod_Kvg9l6AzdR51bB" }) // default 20 max 200
@@ -52,8 +54,26 @@ function SingleProduct({onAddToCart}) {
                         </Grid>
                     </Hidden>
                     <Info product={product} onAddToCart={onAddToCart}/>
-
+                    <Section>
+                        <Typography variant={'h2'} align={'center'}>Related Products</Typography>
+                        <Divider/>
+                        <SectionBody>
+                            <Grid1 col={3} mdCol={2} smCol={100} gap={100}>
+                                {product.related_products.slice(0,3).map((product1, index) => {
+                                        console.log(product1)
+                                        return <ProductCard
+                                            key={index}
+                                            product={product1}
+                                            onAddToCart={onAddToCart}
+                                            extraImage={true}
+                                        />
+                                    }
+                                )};
+                            </Grid1>
+                        </SectionBody>
+                    </Section>
                 </Grid>
+
             </div>
         );
     } else {
