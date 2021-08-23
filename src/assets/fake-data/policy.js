@@ -1,22 +1,22 @@
 const policy = [
   {
-    name: "shop anytime",
-    description: "ujkhcnfwilfhcn",
+    name: "Shop anytime",
+    description: "",
     icon: "bx bx-shopping-bag",
   },
   {
-    name: "EMI",
-    description: "bckjwscbwkufi",
+    name: "Pay online",
+    description: "",
     icon: "bx bx-credit-card",
   },
   {
     name: "Get credits",
-    description: "ckwuifeiqi",
+    description: "",
     icon: "bx bx-diamond",
   },
   {
     name: "Donate",
-    description: "cyweycyuqgc",
+    description: "",
     icon: "bx bx-donate-heart",
   },
 ];

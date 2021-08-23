@@ -4,27 +4,24 @@ const img3 = require("../images/slider/slide_3.png").default;
 
 const heroSliderData = [
   {
-    title: "DATA",
-    description:
-      "Lorem ipsum xsyuadxvwycb xdbwudhgwikch hc8iwhcoiwhcjoa hnciwhcoiajcp whciwjcojcowj ijhcioj hcijcoijc'p hcuhoihcoi nujsisi",
+    title: "NEW SEASON SALE",
+    description: "GET 50% OFF ON STYLES OF THIS SEASON",
     img: img1,
     color: "blue",
-    path: "/catalog/ao-thun-dinosaur-01",
+    path: "/men",
   },
   {
-    title: "DATA2",
-    description:
-      "Lorem ipsum xsyuadxvwycb xdbwudhgwikch hc8iwhcoiwhcjoa hnciwhcoiajcp whciwjcojcowj ijhcioj hcijcoijc'p hcuhoihcoi nujsisi",
+    title: "TOP CATEGORIES",
+    description: "BEST OF WOMEN'S WEAR",
     img: img2,
-    path: "/catalog/ao-thun-dinosaur-02",
+    path: "/women",
     color: "pink",
   },
   {
-    title: "DATA3",
-    description:
-      "Lorem ipsum xsyuadxvwycb xdbwudhgwikch hc8iwhcoiwhcjoa hnciwhcoiajcp whciwjcojcowj ijhcioj hcijcoijc'p hcuhoihcoi nujsisi",
+    title: "SHOP FROM TOP BRANDS",
+    description: "All your favourites at your doorstep.",
     img: img3,
-    path: "/catalog/ao-thun-dinosaur-03",
+    path: "/accessories",
     color: "orange",
   },
 ];
