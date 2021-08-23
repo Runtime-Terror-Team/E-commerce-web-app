@@ -73,16 +73,18 @@ const Header = ({ totalItems }) => {
             ))}
           </div>
           <div className="header__menu__right">
-            {/* <div className="header__menu__item header__menu__right__item">
-              <i className="bx bx-search"></i>
-            </div> */}
             <div className="header__menu__item header__menu__right__item">
+             <Link to="/search">
+              <i className="bx bx-search"></i>
+              </Link>
+            </div>
+            {/* <div className="header__menu__item header__menu__right__item">
               <Link to="/wishlist">
                 <Badge badgeContent={totalItems} color="secondary">
                   <i class="bx bx-heart"></i>
                 </Badge>
               </Link>
-            </div>
+            </div> */}
             <div className="header__menu__item header__menu__right__item">
               <Link to="/cart">
                 <Badge badgeContent={totalItems} color="secondary">

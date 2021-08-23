@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem/CartItem';
 import './checkOutProduct.css';
+import Loaders from "../Loaders"
 
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
@@ -10,16 +11,16 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const handleEmptyCart = () => onEmptyCart();
 
   const renderEmptyCart = () => (
-    <Typography variant="subtitle1">
-      You have no items in your shopping cart,
+    <Typography variant="subtitle1" style={{color:"#4267b2"}}>
+      <h2>Currently, you have no items in your cart,
       <Link className="link" to="/">
-        start adding some
+        <p></p> start adding some
       </Link>
-      !
+      !</h2>
     </Typography>
   );
 
-  if (!cart.line_items) return 'Loading';
+  if (!cart.line_items) return <Loaders/>;
 
   const renderCart = () => (
     <div>

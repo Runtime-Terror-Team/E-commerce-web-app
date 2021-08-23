@@ -20,6 +20,10 @@ const footerAboutLinks = [
     display: "Women",
     path: "/women",
   },
+  {
+    display: "Accessories",
+    path: "/accessories",
+  },
 
 ];
 

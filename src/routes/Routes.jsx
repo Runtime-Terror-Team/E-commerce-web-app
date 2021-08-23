@@ -15,6 +15,7 @@ import SingleProduct from "../pages/SingleProduct";
 import Wishlist from "../pages/Wishlist";
 import Women from "../pages/Women";
 import Loaders from "../components/Loaders";
+import Search from "../pages/Search"
 
 const Routes = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -140,6 +141,7 @@ const Routes = () => {
         <Route path="/login" component={Login} />
         <Route path="/loader" component={Loaders} />
         <Route path="/signup" exact component={SignUp} />
+        <Route path="/search" exact component={Search} />
       </Switch>
     </div>
   );

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import heroSliderData from "../assets/fake-data/hero-slider";
 import policy from "../assets/fake-data/policy";
 // import Tablet from "../components/Tabs";
-import banner from "../assets/images/banner.png";
+import banner from "../assets/images/banner.svg";
 import Grid from "../components/Grid";
 import Helmet from "../components/Helmet";
 import HeroSlider from "../components/HeroSlider";
