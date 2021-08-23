@@ -7,7 +7,6 @@ import Toggle from "./Toggle";
 
 const ProductCard = ({product, onAddToCart}) => {
   const handleAddToCart = () => onAddToCart(product.id, 1);
-  console.log(product);
  
 
   return (
@@ -15,7 +14,7 @@ const ProductCard = ({product, onAddToCart}) => {
     <Link to={`/product/${product.id}`}>
       <div className="product-card__image">
         <img src={product.media.source} alt= {product.name} />
-        <img src={product.assets[1].url} alt= {product.name} />
+        <img src={product.assets[product.assets.length - 1].url} alt= {product.name} />
       </div>
       <h3 className="product-card__name"> {product.name}</h3>
       <div className="product-card__price">

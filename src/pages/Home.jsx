@@ -12,8 +12,8 @@ import ProductCard from "../components/ProductCard";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 
 
-
 const Home = ({ products, onAddToCart }) => {
+  console.log(products);
   return (
     <Helmet title="Home">
       {/* hero slider */}
@@ -48,7 +48,7 @@ const Home = ({ products, onAddToCart }) => {
         <SectionTitle>Latest products</SectionTitle>
         <SectionBody>
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-            {products.slice(0,4).map((product,index)=>(
+            {products.slice(16,20).map((product,index)=>(
               <ProductCard 
               key={index}
               product={product} 
@@ -78,7 +78,7 @@ const Home = ({ products, onAddToCart }) => {
         <SectionBody>
           
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-          {products.slice(4,12).map((product,index)=>(
+          {products.slice(24,32).map((product,index)=>(
               <ProductCard 
               key={index}
               product={product} 
@@ -107,7 +107,7 @@ const Home = ({ products, onAddToCart }) => {
         <SectionTitle>Products</SectionTitle>
         <SectionBody>
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-          {products.slice(12,24).map((product,index)=>(
+          {products.slice(32,45).map((product,index)=>(
               <ProductCard 
               key={index}
               product={product} 
