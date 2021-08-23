@@ -306,7 +306,13 @@ const Form = () => {
         </div>
       </div>
 
-      <form onSubmit={(e) => sendMessage(e)} className="contact__form">
+      <form
+        onSubmit={(e) => {
+          sendMessage(e);
+          notify();
+        }}
+        className="contact__form"
+      >
         <input
           value={inputs.name}
           onChange={(e) => handleInputChange(e)}
@@ -314,6 +320,16 @@ const Form = () => {
           name="name"
           placeholder="name"
           title="Your name"
+          maxLength="50"
+          required
+        />
+        <input
+          value={inputs.number}
+          onChange={(e) => handleInputChange(e)}
+          type="number"
+          name="number"
+          placeholder="number"
+          title="Your number"
           maxLength="50"
           required
         />
@@ -337,7 +353,7 @@ const Form = () => {
           maxLength="550"
           required
         />
-        <input onClick={notify} type="submit" value="Send" />
+        <input type="submit" value="Send" />
         <ToastContainer />
       </form>
     </div>
