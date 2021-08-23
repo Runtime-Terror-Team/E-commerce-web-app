@@ -303,7 +303,7 @@ const Form = () => {
           onChange={(e) => handleInputChange(e)}
           type="number"
           name="number"
-          placeholder="number"
+          placeholder="Phone number"
           title="Your number"
           maxLength="50"
           required
@@ -313,7 +313,7 @@ const Form = () => {
           onChange={(e) => handleInputChange(e)}
           type="email"
           name="email"
-          placeholder="email"
+          placeholder="E-mail id"
           title="Your email"
           maxLength="50"
           required
