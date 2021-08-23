@@ -16,6 +16,7 @@ function SingleProduct() {
         // const { data } = await commerce.products.list({ query: "prod_Kvg9l6AzdR51bB" }) // default 20 max 200
         const { data } = await commerce.products.list({ query: product_id }) // default 20 max 200
         setProduct(data[0])
+        console.log(data)
     }
 
     useEffect(() => {
