@@ -20,11 +20,8 @@
     "react-image-zoom": "^1.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
     "react-toast": "^1.0.3",
-=======
     "swiper": "^6.8.3",
->>>>>>> 0ab11363d77cfa258bb5335f6454684aaee64fea
     "web-vitals": "^1.1.2"
   },
   "scripts": {
