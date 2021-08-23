@@ -17,6 +17,7 @@ import image from "../assets/images/image.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    flex: "center",
     height: "100vh",
     overflow: "hidden",
   },
