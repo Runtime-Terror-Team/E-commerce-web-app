@@ -1,39 +1,35 @@
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline } from "@material-ui/core";
 import { default as React, useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Cart from '../components/Cart/Cart';
-import Checkout from '../components/CheckoutForm/Checkout/Checkout';
-import Header from '../components/Header';
-import { commerce } from '../lib/commerce';
-import Contact from "../pages/Contact";
+import Cart from "../components/Cart/Cart";
+import Checkout from "../components/CheckoutForm/Checkout/Checkout";
+import Header from "../components/Header";
+import { commerce } from "../lib/commerce";
+import Form from "../pages/Form";
 import Home from "../pages/Home";
 import Kids from "../pages/Kids";
 import Login from "../pages/Login";
 import Men from "../pages/Men";
 import SignUp from "../pages/Signup";
-import SingleProduct from '../pages/SingleProduct';
+import SingleProduct from "../pages/SingleProduct";
 import Wishlist from "../pages/Wishlist";
 import Women from "../pages/Women";
-
 
 const Routes = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
-  const [errorMessage, setErrorMessage] = useState('');
-  const [metaData, setMetaData] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
+  const [errorMessage, setErrorMessage] = useState("");
+  const [metaData, setMetaData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchProducts = async () => {
-    const response = await commerce.products.list({ limit: 50 }) ;
-    const { data, meta } = response
-    setMetaData(meta)
-    setProducts(data)
-    setIsLoading(false)
-
-
+    const response = await commerce.products.list({ limit: 50 });
+    const { data, meta } = response;
+    setMetaData(meta);
+    setProducts(data);
+    setIsLoading(false);
   };
 
   const fetchCart = async () => {
@@ -72,7 +68,10 @@ const Routes = () => {
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
-      const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
 
       setOrder(incomingOrder);
 
@@ -88,29 +87,47 @@ const Routes = () => {
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-  
+
   return (
-    <div> 
+    <div>
       <CssBaseline />
-      <Header totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle}/>
+      <Header
+        totalItems={cart.total_items}
+        handleDrawerToggle={handleDrawerToggle}
+      />
       <Switch>
-        <Route exact path="/" >
-        <Home products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+        <Route exact path="/">
+          <Home
+            products={products}
+            onAddToCart={handleAddToCart}
+            handleUpdateCartQty
+          />
         </Route>
-        <Route path='/product/:product_id'>
-                        <SingleProduct onAddToCart={handleAddToCart}/>
-                  </Route>
+        <Route path="/product/:product_id">
+          <SingleProduct onAddToCart={handleAddToCart} />
+        </Route>
         <Route path="/women" component={Women} />
         <Route path="/men" component={Men} />
         <Route path="/kids" component={Kids} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/contact" component={Form} />
         <Route path="/wishlist" component={Wishlist} />
         <Route path="/cart">
-            <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
-          </Route>
-          <Route path="/checkout" exact>
-            <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} onEmptyCart={handleEmptyCart} />
-          </Route>
+          <Cart
+            cart={cart}
+            onUpdateCartQty={handleUpdateCartQty}
+            onRemoveFromCart={handleRemoveFromCart}
+            onEmptyCart={handleEmptyCart}
+          />
+        </Route>
+        <Route path="/checkout" exact>
+          <Checkout
+            cart={cart}
+            order={order}
+            onCaptureCheckout={handleCaptureCheckout}
+            error={errorMessage}
+            onEmptyCart={handleEmptyCart}
+          />
+        </Route>
         <Route path="/login" component={Login} />
         <Route path="/signup" exact component={SignUp} />
       </Switch>

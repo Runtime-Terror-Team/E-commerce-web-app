@@ -1,8 +1,7 @@
-import { Badge } from '@material-ui/core';
+import { Badge } from "@material-ui/core";
 import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/Logo-2.svg";
-
 
 const mainNav = [
   {
@@ -27,7 +26,7 @@ const mainNav = [
   },
 ];
 
-const Header = ({totalItems}) => {
+const Header = ({ totalItems }) => {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
 
@@ -85,21 +84,21 @@ const Header = ({totalItems}) => {
             ))}
           </div>
           <div className="header__menu__right">
-            <div className="header__menu__item header__menu__right__item">
+            {/* <div className="header__menu__item header__menu__right__item">
               <i className="bx bx-search"></i>
-            </div>
+            </div> */}
             <div className="header__menu__item header__menu__right__item">
               <Link to="/wishlist">
-              <Badge badgeContent={totalItems} color="secondary">
-                <i class="bx bx-heart"></i>
-              </Badge>
+                <Badge badgeContent={totalItems} color="secondary">
+                  <i class="bx bx-heart"></i>
+                </Badge>
               </Link>
             </div>
             <div className="header__menu__item header__menu__right__item">
               <Link to="/cart">
-              <Badge badgeContent={totalItems} color="secondary">
-                <i className="bx bx-shopping-bag"></i>
-              </Badge>
+                <Badge badgeContent={totalItems} color="secondary">
+                  <i className="bx bx-shopping-bag"></i>
+                </Badge>
               </Link>
             </div>
             <div className="header__menu__item header__menu__right__item">
