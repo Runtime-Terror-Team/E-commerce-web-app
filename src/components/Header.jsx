@@ -1,8 +1,7 @@
-import { Badge } from '@material-ui/core';
+import { Badge } from "@material-ui/core";
 import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/Logo-2.svg";
-
 
 const mainNav = [
   {
@@ -18,36 +17,22 @@ const mainNav = [
     path: "/women",
   },
   {
-    display: "Kids",
-    path: "/kids",
+    display: "Accessories",
+    path: "/accessories",
   },
+
   {
     display: "Contact us",
     path: "/contact",
   },
 ];
 
-const Header = ({totalItems}) => {
+const Header = ({ totalItems }) => {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
 
   const headerRef = useRef(null);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (
-  //       document.body.scrollTop > 80 ||
-  //       document.documentElement.scrollTop > 80
-  //     ) {
-  //       headerRef.current.classList.add("shrink");
-  //     } else {
-  //       headerRef.current.classList.remove("shrink");
-  //     }
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll");
-  //   };
-  // }, []);
 
   const menuLeft = useRef(null);
 
@@ -56,11 +41,14 @@ const Header = ({totalItems}) => {
   return (
     <div className="header" ref={headerRef}>
       <div className="container">
-        <div className="header__logo">
-          <Link to="/">
+      
+        
+          <Link className="header__logo" to={'/'}>
             <img src={Logo} alt="" />
           </Link>
-        </div>
+         
+       
+       
         <div className="header__menu">
           <div className="header__menu__mobile-toggle" onClick={menuToggle}>
             <i className="bx bx-menu-alt-left"></i>
@@ -85,21 +73,21 @@ const Header = ({totalItems}) => {
             ))}
           </div>
           <div className="header__menu__right">
-            <div className="header__menu__item header__menu__right__item">
+            {/* <div className="header__menu__item header__menu__right__item">
               <i className="bx bx-search"></i>
-            </div>
+            </div> */}
             <div className="header__menu__item header__menu__right__item">
               <Link to="/wishlist">
-              <Badge badgeContent={totalItems} color="secondary">
-                <i class="bx bx-heart"></i>
-              </Badge>
+                <Badge badgeContent={totalItems} color="secondary">
+                  <i class="bx bx-heart"></i>
+                </Badge>
               </Link>
             </div>
             <div className="header__menu__item header__menu__right__item">
               <Link to="/cart">
-              <Badge badgeContent={totalItems} color="secondary">
-                <i className="bx bx-shopping-bag"></i>
-              </Badge>
+                <Badge badgeContent={totalItems} color="secondary">
+                  <i className="bx bx-shopping-bag"></i>
+                </Badge>
               </Link>
             </div>
             <div className="header__menu__item header__menu__right__item">

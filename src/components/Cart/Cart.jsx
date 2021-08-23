@@ -27,7 +27,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
         <div className="checkout__left">
 
           <div>
-            <h2 className="checkout__title">Your shopping basket</h2>
+            <h1 className="checkout__title">Your shopping basket</h1>
             {cart.line_items.map((lineItem) => (
               <CartItem
               
@@ -124,9 +124,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   return (
     <Container>
       <div className="toolbar" />
-      <Typography className="title" variant="h3" gutterBottom>
-        Your Shopping Cart
-      </Typography>
+      
       {!cart.line_items.length ? renderEmptyCart() : renderCart()}
     </Container>
   );
