@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/Logo-2.svg";
 
-
 const mainNav = [
   {
     display: "Home",
@@ -18,9 +17,10 @@ const mainNav = [
     path: "/women",
   },
   {
-    display: "Kids",
-    path: "/kids",
+    display: "Accessories",
+    path: "/accessories",
   },
+
   {
     display: "Contact us",
     path: "/contact",
@@ -28,26 +28,12 @@ const mainNav = [
 ];
 
 const Header = ({totalItems}) => {
+ 
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
 
   const headerRef = useRef(null);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (
-  //       document.body.scrollTop > 80 ||
-  //       document.documentElement.scrollTop > 80
-  //     ) {
-  //       headerRef.current.classList.add("shrink");
-  //     } else {
-  //       headerRef.current.classList.remove("shrink");
-  //     }
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll");
-  //   };
-  // }, []);
 
   const menuLeft = useRef(null);
 
@@ -56,11 +42,14 @@ const Header = ({totalItems}) => {
   return (
     <div className="header" ref={headerRef}>
       <div className="container">
-        <div className="header__logo">
-          <Link to="/">
+      
+        
+          <Link className="header__logo" to={'/'}>
             <img src={Logo} alt="" />
           </Link>
-        </div>
+         
+       
+       
         <div className="header__menu">
           <div className="header__menu__mobile-toggle" onClick={menuToggle}>
             <i className="bx bx-menu-alt-left"></i>

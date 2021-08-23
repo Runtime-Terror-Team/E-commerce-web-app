@@ -5,9 +5,9 @@ import Cart from '../components/Cart/Cart';
 import Checkout from '../components/CheckoutForm/Checkout/Checkout';
 import Header from '../components/Header';
 import { commerce } from '../lib/commerce';
+import Accessories from '../pages/Accessories';
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
-import Kids from "../pages/Kids";
 import Login from "../pages/Login";
 import Men from "../pages/Men";
 import SignUp from "../pages/Signup";
@@ -24,6 +24,8 @@ const Routes = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [metaData, setMetaData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
+ 
 
 
   const fetchProducts = async () => {
@@ -88,6 +90,9 @@ const Routes = () => {
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+
+
+
   
   return (
     <div> 
@@ -100,9 +105,17 @@ const Routes = () => {
         <Route path='/product/:product_id'>
                         <SingleProduct onAddToCart={handleAddToCart}/>
                   </Route>
-        <Route path="/women" component={Women} />
-        <Route path="/men" component={Men} />
-        <Route path="/kids" component={Kids} />
+        
+        <Route path="/women"  >
+          <Women onAddToCart={handleAddToCart}/>
+        </Route>
+        <Route path="/men"  >
+          <Men onAddToCart={handleAddToCart}/>
+        </Route>
+        <Route path="/accessories"  >
+          <Accessories onAddToCart={handleAddToCart}/>
+        </Route>
+      
         <Route path="/contact" component={Contact} />
         <Route path="/wishlist" component={Wishlist} />
         <Route path="/cart">

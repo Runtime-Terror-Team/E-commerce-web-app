@@ -7,6 +7,7 @@ import Toggle from "./Toggle";
 
 const ProductCard = ({product, onAddToCart}) => {
   const handleAddToCart = () => onAddToCart(product.id, 1);
+  console.log(product);
  
 
   return (
@@ -18,9 +19,9 @@ const ProductCard = ({product, onAddToCart}) => {
       </div>
       <h3 className="product-card__name"> {product.name}</h3>
       <div className="product-card__price">
-        &#8377; ${product.price.formatted}
+        &#8377; {product.price.formatted}
         <span className="product-card__price__old">
-          <del>&#8377; 123231</del>
+          <del>&#8377; {product.price.raw*2}</del>
         </span>
       </div>
     </Link>

@@ -3,9 +3,9 @@ import Grid from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 import { commerce } from '../lib/commerce';
 
-const Men = ({ onAddToCart }) => {
+const Accessories = ({ onAddToCart }) => {
   const [products, setProducts] = useState([]);
-  const categories="men"
+  const categories="accessories"
   const [metaData, setMetaData] = useState([])
 
   const fetchCategoryProducts = async () => {
@@ -39,4 +39,4 @@ useEffect(() => {
   </>
      )}
 
-export default Men;
+export default Accessories;

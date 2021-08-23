@@ -1,10 +1,10 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
+import logo from "../assets/images/Logo-2.svg";
 import Grid from "./Grid";
 
-import logo from "../assets/images/Logo-2.svg";
+
+
 
 const footerAboutLinks = [
   {
@@ -20,10 +20,7 @@ const footerAboutLinks = [
     display: "Women",
     path: "/women",
   },
-  {
-    display: "Kids",
-    path: "/kids",
-  },
+
 ];
 
 const footerCustomerLinks = [
