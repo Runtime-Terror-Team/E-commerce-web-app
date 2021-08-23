@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import Helmet from "../components/Helmet";
-import HeroSlider from "../components/HeroSlider";
-import Section, { SectionTitle, SectionBody } from "../components/Section";
-import PolicyCard from "../components/PolicyCard";
-import Grid from "../components/Grid";
-import ProductCard from "../components/ProductCard";
-
 import heroSliderData from "../assets/fake-data/hero-slider";
 import policy from "../assets/fake-data/policy";
-import productData from "../assets/fake-data/products";
 // import Tablet from "../components/Tabs";
 import banner from "../assets/images/banner.png";
+import Grid from "../components/Grid";
+import Helmet from "../components/Helmet";
+import HeroSlider from "../components/HeroSlider";
+import PolicyCard from "../components/PolicyCard";
+import ProductCard from "../components/ProductCard";
+import Section, { SectionBody, SectionTitle } from "../components/Section";
 
-const Home = () => {
+
+
+const Home = ({ products, onAddToCart }) => {
   return (
     <Helmet title="Home">
       {/* hero slider */}
@@ -49,7 +48,16 @@ const Home = () => {
         <SectionTitle>Latest products</SectionTitle>
         <SectionBody>
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-            {productData.getProducts(4).map((item, index) => (
+            {products.slice(0,4).map((product,index)=>(
+              <ProductCard 
+              key={index}
+              product={product} 
+              onAddToCart={onAddToCart}
+              img={product.media.source}
+              />
+
+            ))};
+            {/* {productData.getProducts(4).map((item, index) => (
               <ProductCard
                 key={index}
                 img01={item.image01}
@@ -58,7 +66,7 @@ const Home = () => {
                 price={Number(item.price)}
                 slug={item.slug}
               />
-            ))}
+            ))} */}
           </Grid>
         </SectionBody>
       </Section>
@@ -68,17 +76,17 @@ const Home = () => {
       <Section>
         <SectionTitle>Our best seller</SectionTitle>
         <SectionBody>
+          
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-            {productData.getProducts(8).map((item, index) => (
-              <ProductCard
-                key={index}
-                img01={item.image01}
-                img02={item.image02}
-                name={item.title}
-                price={Number(item.price)}
-                slug={item.slug}
+          {products.slice(4,12).map((product,index)=>(
+              <ProductCard 
+              key={index}
+              product={product} 
+              onAddToCart={onAddToCart}
+              img={product.media.source}
               />
-            ))}
+
+            ))};
           </Grid>
         </SectionBody>
       </Section>
@@ -99,16 +107,15 @@ const Home = () => {
         <SectionTitle>Products</SectionTitle>
         <SectionBody>
           <Grid col={4} mdCol={2} smCol={1} gap={20}>
-            {productData.getProducts(12).map((item, index) => (
-              <ProductCard
-                key={index}
-                img01={item.image01}
-                img02={item.image02}
-                name={item.title}
-                price={Number(item.price)}
-                slug={item.slug}
+          {products.slice(12,24).map((product,index)=>(
+              <ProductCard 
+              key={index}
+              product={product} 
+              onAddToCart={onAddToCart}
+              img={product.media.source}
               />
-            ))}
+
+            ))};
           </Grid>
         </SectionBody>
       </Section>

@@ -1,9 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const Helmet = props => {
 
-    document.title = 'Yolo - ' + props.title
+    document.title = 'RTT Store- ' + props.title
 
     return (
         <div>

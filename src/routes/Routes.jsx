@@ -10,8 +10,8 @@ import Home from "../pages/Home";
 import Kids from "../pages/Kids";
 import Login from "../pages/Login";
 import Men from "../pages/Men";
-import Product from "../pages/Product";
 import SignUp from "../pages/Signup";
+import SingleProduct from '../pages/SingleProduct';
 import Wishlist from "../pages/Wishlist";
 import Women from "../pages/Women";
 
@@ -22,11 +22,18 @@ const Routes = () => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  const [metaData, setMetaData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
 
   const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
+    const response = await commerce.products.list({ limit: 50 }) ;
+    const { data, meta } = response
+    setMetaData(meta)
+    setProducts(data)
+    setIsLoading(false)
 
-    setProducts(data);
+
   };
 
   const fetchCart = async () => {
@@ -87,14 +94,18 @@ const Routes = () => {
       <CssBaseline />
       <Header totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle}/>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/product/:slug" component={Product} />
+        <Route exact path="/" >
+        <Home products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
+        </Route>
+        <Route path='/product/:product_id'>
+                        <SingleProduct onAddToCart={handleAddToCart}/>
+                  </Route>
         <Route path="/women" component={Women} />
         <Route path="/men" component={Men} />
         <Route path="/kids" component={Kids} />
         <Route path="/contact" component={Contact} />
         <Route path="/wishlist" component={Wishlist} />
-        <Route exact path="/cart">
+        <Route path="/cart">
             <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
           </Route>
           <Route path="/checkout" exact>

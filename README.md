@@ -1,2 +1,2 @@
-# yolo-reactjs-ecommerce
+# RTT-reactjs-ecommerce
  React Ecommerce Web Shop
