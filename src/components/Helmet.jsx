@@ -7,7 +7,7 @@ const Helmet = (props) => {
   return <div>{props.children}</div>;
 };
 
-Helmet.propTypes = {
+Helmet.propsTypes = {
   title: PropTypes.string.isRequired,
 };
 

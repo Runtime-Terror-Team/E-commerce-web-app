@@ -30,6 +30,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
             <h2 className="checkout__title">Your shopping basket</h2>
             {cart.line_items.map((lineItem) => (
               <CartItem
+              
                 item={lineItem}
                 onUpdateCartQty={onUpdateCartQty}
                 onRemoveFromCart={onRemoveFromCart}
