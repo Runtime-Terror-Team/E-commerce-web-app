@@ -3,18 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chec/commerce.js": "^2.7.2",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.17.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.13.0",
+    "react-html-parser": "^2.0.2",
+    "react-image-zoom": "^1.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+<<<<<<< HEAD
     "react-toast": "^1.0.3",
+=======
+    "swiper": "^6.8.3",
+>>>>>>> 0ab11363d77cfa258bb5335f6454684aaee64fea
     "web-vitals": "^1.1.2"
   },
   "scripts": {
