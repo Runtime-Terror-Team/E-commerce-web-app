@@ -21,7 +21,7 @@ const ProductCard = ({ product, onAddToCart, extraImage = false }) => {
                 <div className="product-card__price">
                     &#8377; {product.price.formatted}
                     <span className="product-card__price__old">
-            <del>&#8377; {product.price.raw * 2}</del>
+            <del>&#8377; {product.price.raw * 2}.00</del>
           </span>
                 </div>
             </Link>
